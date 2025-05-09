@@ -33,10 +33,6 @@ struct Cli {
 //  - transaction mempool
 //  - wallet file encryption
 //  - 'distributed' mining
-
-// todo
-//  - get block on one node -> send to others + get reward
-//  - process transactions
 fn main() {
     let cli = Cli::parse();
 

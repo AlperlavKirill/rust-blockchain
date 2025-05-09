@@ -26,10 +26,8 @@ pub async fn start_api(state: AppState, port: u16) {
     let api = Router::new()
         .route("/balance/:address", get(get_balance))
         .route("/balances", get(get_balances))
-        //fixme
         .route("/wallet/:address", get(load_wallet))
         .route("/wallet/create/:file_name", put(create_wallet))
-        //fixme
         .route("/tx", post(create_tx))
         .route("/valid", get(valid_blockchain))
         .with_state(state);

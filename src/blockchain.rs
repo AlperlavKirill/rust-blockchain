@@ -17,12 +17,6 @@ pub const TRANSACTION_FEE: f64 = 0.01;
 
 // todo
 //  - транзакция попадает в пул, откуда ее может взять в блок майнер с кастомной комиссией
-//  - p2p
-//  - api
-
-// todo
-//  - initial wallet with transaction from network
-//
 
 
 impl Blockchain {

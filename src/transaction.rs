@@ -2,7 +2,6 @@ use std::fmt::{Display, Formatter};
 use serde::{Deserialize, Serialize};
 use crate::blockchain::TRANSACTION_FEE;
 
-// todo add verification and validation
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Transaction {
     pub from: String,
