@@ -28,7 +28,7 @@ impl Blockchain {
             println!("Инициализация первого блока...");
             let initial_tx = Transaction {
                 from: NETWORK_ADDRESS.to_string(),
-                to: "0264ee53348ee74ad477edc18532dac507409e4cdc10e0f663967772ef0b451e38".to_string(),
+                to: "02c9cfea78bd540fae61e64ba3b848f691aeabbd2a36b02a7dd57513752441523b".to_string(),
                 amount: 100.0,
                 signature: vec![],
                 public_key: vec![],

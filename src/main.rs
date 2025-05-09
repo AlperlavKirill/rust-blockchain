@@ -12,10 +12,6 @@ use blockchain::Blockchain;
 use clap::Parser;
 use std::sync::{Arc, Mutex};
 use std::thread;
-// blockchain wallet generate --file kirill.wallet (создание нового кошелька)
-// blockchain wallet load --file kirill.wallet (показать публичный ключ кошелька)
-// blockchain wallet balance --address asdapsodeiq...
-// blockchain wallet send --from_file kirill.wallet --to another_address --amount 10.0
 
 #[derive(Parser)]
 struct Cli {
@@ -26,20 +22,21 @@ struct Cli {
     #[arg(long)]
     api_port: u16,
     #[arg(long)]
-    nodes: Vec<String>,
+    nodes: String,
 }
 
-// todo
-//  - transaction mempool
-//  - wallet file encryption
-//  - 'distributed' mining
 fn main() {
     let cli = Cli::parse();
 
     let db_name = cli.db;
     let blockchain = Arc::new(Mutex::new(Blockchain::new(&db_name, 3)));
 
-    let nodes = cli.nodes;
+    let nodes = cli.nodes
+        .split(',')
+        .filter(|s| !s.is_empty())
+        .map(|s| s.to_string())
+        .collect::<Vec<String>>();
+
     let p2p = P2P::new(nodes, db_name);
     let p2p_port = cli.p2p_port;
 

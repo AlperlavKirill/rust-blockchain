@@ -17,7 +17,6 @@ pub struct Message {
     pub payload: Vec<u8>,
 }
 
-// todo новая нода получает данные от известных нод
 #[derive(Clone)]
 pub struct P2P {
     pub nodes: Vec<String>,
